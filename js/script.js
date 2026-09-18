@@ -26,3 +26,37 @@ navItems.forEach((item) => {
 
 /* ==================== CURRENT YEAR ==================== */
 year.textContent = new Date().getFullYear();
+
+/* ==================== SCROLL REVEAL ==================== */
+const revealElements = document.querySelectorAll(
+    ".skill-card, .project-card, .timeline-item, .education-card, .about-content"
+);
+revealElements.forEach((element) => {
+    element.classList.add("reveal");
+});
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.12
+    }
+);
+revealElements.forEach((element) => {
+    revealObserver.observe(element);
+});
+
+/* ==================== NAVBAR SCROLL ==================== */
+const header = document.querySelector(".header");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});

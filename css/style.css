@@ -630,6 +630,110 @@ button {
     font-size: 0.78rem;
 }
 
+/* ==================== PROJECT CARDS V2 ==================== */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 34px;
+}
+.featured-project {
+    border-color: rgba(61, 217, 197, 0.20);
+}
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+.project-number {
+    margin: 0;
+    color: var(--accent);
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+.project-status {
+    padding: 5px 10px;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.featured-project .project-status {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-color: rgba(61, 217, 197, 0.18);
+}
+.project-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid rgba(61, 217, 197, 0.15);
+    border-radius: 12px;
+    font-size: 1.35rem;
+    transition:
+        transform var(--transition),
+        background var(--transition);
+}
+.project-card:hover .project-icon {
+    transform: rotate(-4deg) scale(1.06);
+    background: rgba(61, 217, 197, 0.15);
+}
+.project-content {
+    padding: 0;
+}
+.project-subtitle {
+    margin-bottom: 16px;
+    color: var(--text) !important;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.project-description {
+    margin-bottom: 22px;
+}
+.project-features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 25px;
+}
+.project-features span {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.project-features span::first-letter {
+    color: var(--accent);
+}
+.project-links {
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+}
+.project-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--text) !important;
+    text-decoration: none !important;
+}
+.link-arrow {
+    color: var(--accent);
+    font-size: 1.2rem;
+    transition: transform var(--transition);
+}
+.project-link:hover .link-arrow {
+    transform: translate(3px, -3px);
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px) {
     .section {
@@ -750,4 +854,68 @@ button {
     .contact-links a {
         width: 100%;
     }
+}
+
+/* ==================== SKILL ICONS ==================== */
+.skill-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+.skill-heading > i {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid rgba(61, 217, 197, 0.15);
+    border-radius: 10px;
+    font-size: 1.65rem;
+}
+.skill-heading h3 {
+    margin: 2px 0 0;
+}
+.skill-category {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ==================== SCROLL REVEAL ==================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Respeta usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+.header.scrolled {
+    background: rgba(8, 12, 20, 0.94);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.20);
 }
