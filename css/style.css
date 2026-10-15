@@ -935,3 +935,22 @@ button {
     border-radius: 50%;
     box-shadow: 0 0 0 4px rgba(61, 217, 197, 0.10);
 }
+/* El caso principal ocupa una fila; los proyectos académicos se comparan debajo. */
+.projects-grid > .featured-project {
+    grid-column: 1 / -1;
+}
+.featured-project .project-content {
+    max-width: 900px;
+}
+.project-description strong {
+    color: var(--text);
+}
+.project-top {
+    flex-wrap: wrap;
+    gap: 12px;
+}
+@media (max-width: 760px) {
+    .project-card { padding: 24px; }
+    .project-card .project-content { padding: 0; }
+    .project-features { grid-template-columns: 1fr; }
+}
